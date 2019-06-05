@@ -7,7 +7,6 @@ import androidx.lifecycle.LiveData
 class NoteViewModel(application: Application): AndroidViewModel(application){
 
     private val repository: NoteRepository = NoteRepository(application)
-    private val allNotes: LiveData<List<Note>> = repository.getAllNotes()
 
     public fun insert(note: Note){
         repository.insert(note)

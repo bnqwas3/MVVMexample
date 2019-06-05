@@ -29,9 +29,6 @@ class NoteListAdapter : ListAdapter<Note, NoteListAdapter.NoteListViewHolder>(DI
     private lateinit var listener: OnItemClickListener
 
     inner class NoteListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvTitle = view.tvTitle
-        val tvPriority = view.tvPriority
-        val tvDescription = view.tvDescription
 
         init {
             view.setOnClickListener {
@@ -54,13 +51,18 @@ class NoteListAdapter : ListAdapter<Note, NoteListAdapter.NoteListViewHolder>(DI
 
         val note = getItem(position)
 
-        holder.tvTitle.text = note.title
-        holder.tvPriority.text = note.priority.toString()
-        holder.tvDescription.text = note.description.toString()
+        holder.itemView.apply {
+
+            tvTitle.text = note.title
+            tvDescription.text = note.description
+            tvPriority.text = note.priority.toString()
+
+        }
 
         holder.itemView.apply {
             findViewById<TextView>(R.id.tvTitle).text = getItem(position).title
         }
+
     }
 
     public fun getNoteAt(position: Int): Note {

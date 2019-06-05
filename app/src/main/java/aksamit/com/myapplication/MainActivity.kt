@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                Timber.d(WithTag.withTag("direction: $direction"))
                 noteViewModel.delete(noteListAdapter.getNoteAt(viewHolder.adapterPosition))
                 Toast.makeText(applicationContext, "Note deleted", Toast.LENGTH_SHORT).show()
             }

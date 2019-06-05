@@ -10,22 +10,22 @@ class NoteRepository(application: Application) {
     companion object {
         private class InsertNoteAsyncTask(val noteDao: NoteDao) : AsyncTask<Note, Unit, Unit>() {
 
-            override fun doInBackground(vararg p0: Note?) {
-                noteDao.insert(p0[0]!!)
+            override fun doInBackground(vararg p0: Note) {
+                noteDao.insert(p0[0])
             }
         }
 
         private class UpdateNoteAsyncTask(val noteDao: NoteDao) : AsyncTask<Note, Unit, Unit>() {
 
-            override fun doInBackground(vararg p0: Note?) {
-                noteDao.update(p0[0]!!)
+            override fun doInBackground(vararg p0: Note) {
+                noteDao.update(p0[0])
             }
         }
 
         private class DeleteNoteAsyncTask(val noteDao: NoteDao) : AsyncTask<Note, Unit, Unit>() {
 
-            override fun doInBackground(vararg p0: Note?) {
-                noteDao.delete(p0[0]!!)
+            override fun doInBackground(vararg p0: Note) {
+                noteDao.delete(p0[0])
             }
         }
 
